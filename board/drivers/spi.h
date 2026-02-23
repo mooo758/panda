@@ -1,7 +1,7 @@
 #pragma once
 
-#include "board/drivers/spi_declarations.h"
-#include "board/crc.h"
+#include "spi_declarations.h"
+#include "crc.h"
 
 #ifdef STM32H7
 #define SPI_BUF_SIZE 2048U
