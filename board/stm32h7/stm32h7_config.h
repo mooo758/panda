@@ -60,8 +60,8 @@ separate IRQs for RX and TX.
 #include "../drivers/registers.h"
 #include "../drivers/interrupts.h"
 #include "../drivers/gpio.h"
-#include "stm32h7/peripherals.h"
-#include "stm32h7/interrupt_handlers.h"
+#include "peripherals.h"
+#include "interrupt_handlers.h"
 #include "drivers/timers.h"
 
 #if !defined(BOOTSTUB)
