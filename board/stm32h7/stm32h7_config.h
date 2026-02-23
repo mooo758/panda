@@ -69,7 +69,11 @@ separate IRQs for RX and TX.
   #include "lluart.h"
 #endif
 
-#include "board.h"
+#ifdef PANDA_JUNGLE
+  #include "../jungle/stm32h7/board.h"
+#else
+  #include "board.h"
+#endif
 #include "clock.h"
 
 #ifdef BOOTSTUB
