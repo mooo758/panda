@@ -43,29 +43,29 @@ separate IRQs for RX and TX.
 #define PROVISION_CHUNK_ADDRESS 0x080FFFE0U
 #define DEVICE_SERIAL_NUMBER_ADDRESS 0x080FFFC0U
 
-#include "can.h"
-#include "comms_definitions.h"
+#include "../can.h"
+#include "../comms_definitions.h"
 
 #ifndef BOOTSTUB
-  #include "main_definitions.h"
+  #include "../main_definitions.h"
 #else
-  #include "bootstub_declarations.h"
+  #include "../bootstub_declarations.h"
 #endif
 
-#include "libc.h"
-#include "critical.h"
-#include "faults.h"
-#include "utils.h"
+#include "../libc.h"
+#include "../critical.h"
+#include "../faults.h"
+#include "../utils.h"
 
-#include "drivers/registers.h"
-#include "drivers/interrupts.h"
-#include "drivers/gpio.h"
+#include "../drivers/registers.h"
+#include "../drivers/interrupts.h"
+#include "../drivers/gpio.h"
 #include "stm32h7/peripherals.h"
 #include "stm32h7/interrupt_handlers.h"
 #include "drivers/timers.h"
 
 #if !defined(BOOTSTUB)
-  #include "drivers/uart.h"
+  #include "../drivers/uart.h"
   #include "stm32h7/lluart.h"
 #endif
 
@@ -80,7 +80,7 @@ separate IRQs for RX and TX.
 
 #include "stm32h7/llusb.h"
 
-#include "drivers/spi.h"
+#include "../drivers/spi.h"
 #include "stm32h7/llspi.h"
 
 void early_gpio_float(void) {
