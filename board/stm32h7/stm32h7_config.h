@@ -66,22 +66,22 @@ separate IRQs for RX and TX.
 
 #if !defined(BOOTSTUB)
   #include "../drivers/uart.h"
-  #include "stm32h7/lluart.h"
+  #include "lluart.h"
 #endif
 
-#include "stm32h7/board.h"
-#include "stm32h7/clock.h"
+#include "board.h"
+#include "clock.h"
 
 #ifdef BOOTSTUB
-  #include "stm32h7/llflash.h"
+  #include "llflash.h"
 #else
-  #include "stm32h7/llfdcan.h"
+  #include "llfdcan.h"
 #endif
 
-#include "stm32h7/llusb.h"
+#include "llusb.h"
 
 #include "../drivers/spi.h"
-#include "stm32h7/llspi.h"
+#include "llspi.h"
 
 void early_gpio_float(void) {
   RCC->AHB4ENR = RCC_AHB4ENR_GPIOAEN | RCC_AHB4ENR_GPIOBEN | RCC_AHB4ENR_GPIOCEN | RCC_AHB4ENR_GPIODEN | RCC_AHB4ENR_GPIOEEN | RCC_AHB4ENR_GPIOFEN | RCC_AHB4ENR_GPIOGEN | RCC_AHB4ENR_GPIOHEN;

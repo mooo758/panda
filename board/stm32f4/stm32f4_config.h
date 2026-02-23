@@ -47,27 +47,27 @@
 #include "drivers/registers.h"
 #include "drivers/interrupts.h"
 #include "drivers/gpio.h"
-#include "stm32f4/peripherals.h"
-#include "stm32f4/interrupt_handlers.h"
+#include "peripherals.h"
+#include "interrupt_handlers.h"
 #include "../drivers/timers.h"
-#include "stm32f4/board.h"
-#include "stm32f4/clock.h"
+#include "board.h"
+#include "clock.h"
 
 #include "drivers/spi.h"
-#include "stm32f4/llspi.h"
+#include "llspi.h"
 
 #if !defined(BOOTSTUB)
   #include "drivers/uart.h"
-  #include "stm32f4/lluart.h"
+  #include "lluart.h"
 #endif
 
 #ifdef BOOTSTUB
-  #include "stm32f4/llflash.h"
+  #include "llflash.h"
 #else
-  #include "stm32f4/llbxcan.h"
+  #include "llbxcan.h"
 #endif
 
-#include "stm32f4/llusb.h"
+#include "llusb.h"
 
 void early_gpio_float(void) {
   RCC->AHB1ENR = RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN;
