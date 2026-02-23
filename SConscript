@@ -60,7 +60,7 @@ def to_c_uint32(x):
   return "{" + 'U,'.join(map(str, nums)) + "U}"
 
 
-def build_project(project_name, project, main, extra_flags):
+def build_project(project_name, project, main, extra_flags, extra_cpppath=[]):
   project_dir = Dir(f'./board/obj/{project_name}/')
 
   flags = project["FLAGS"] + extra_flags + common_flags + [
@@ -90,7 +90,7 @@ def build_project(project_name, project, main, extra_flags):
     CFLAGS=flags,
     ASFLAGS=flags,
     LINKFLAGS=flags,
-    CPPPATH=[Dir("./"), "./board", "./board/stm32h7/inc", opendbc.INCLUDE_PATH],
+    CPPPATH=[Dir("./"), "./board", "./board/stm32h7/inc", opendbc.INCLUDE_PATH] + extra_cpppath,
     ASCOM="$AS $ASFLAGS -o $TARGET -c $SOURCES",
     BUILDERS={
       'Objcopy': Builder(generator=objcopy, suffix='.bin', src_suffix='.elf')
@@ -159,10 +159,10 @@ flags = [
 ]
 if os.getenv("FINAL_PROVISIONING"):
   flags += ["-DFINAL_PROVISIONING"]
-build_project("panda_jungle_h7", base_project_h7, "./board/jungle/main.c", flags)
+build_project("panda_jungle_h7", base_project_h7, "./board/jungle/main.c", flags, ["./board/jungle"])
 
 # body fw
-build_project("body_h7", base_project_h7, "./board/body/main.c", ["-DPANDA_BODY"])
+build_project("body_h7", base_project_h7, "./board/body/main.c", ["-DPANDA_BODY"], ["./board/body"])
 
 # test files
 if GetOption('extras'):
