@@ -49,7 +49,7 @@
 #include "drivers/gpio.h"
 #include "stm32f4/peripherals.h"
 #include "stm32f4/interrupt_handlers.h"
-#include "drivers/timers.h"
+#include "../drivers/timers.h"
 #include "stm32f4/board.h"
 #include "stm32f4/clock.h"
 
