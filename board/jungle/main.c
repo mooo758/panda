@@ -11,7 +11,7 @@
 #include "board/provision.h"
 
 #include "board/health.h"
-#include "jungle_health.h"
+#include "board/jungle/jungle_health.h"
 
 #include "board/drivers/can_common.h"
 
@@ -24,7 +24,7 @@
 #include "board/obj/gitversion.h"
 
 #include "board/can_comms.h"
-#include "main_comms.h"
+#include "board/jungle/main_comms.h"
 
 
 // ********************* Serial debugging *********************
